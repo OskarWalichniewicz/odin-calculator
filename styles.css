@@ -8,6 +8,7 @@
 
 html {
   height: 100%;
+  font-family: "Titillium Web", sans-serif;
 }
 
 body {
@@ -34,10 +35,31 @@ body {
 }
 
 .number_display {
-  width: 400px;
-  height: 100px;
+  width: 380px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   background-color: var(--blue);
+  color: var(--grey_light);
   margin: 25px;
+  text-align: right;
+  padding: 10px;
+}
+
+/* Max 42 characters */
+.calc_history {
+  width: 370px;
+  height: 25px;
+  line-height: 25px;
+}
+
+/* Max 19 characters */
+.result {
+  width: 370px;
+  height: 45px;
+  line-height: 45px;
+  font-size: 35px;
 }
 
 .buttons_container {
@@ -51,16 +73,27 @@ body {
 
 .buttons_container button {
   border: none;
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
   background-color: var(--grey_light);
+  color: var(--grey_dark);
 }
 
 .buttons_container .remove {
   background-color: var(--red);
 }
 
-.btn_plus {
+.buttons_container .operator {
+  background-color: var(--blue);
+  color: var(--grey_light);
+}
+
+.far,
+.fas {
+  font-size: 23px;
+}
+
+.btn_equals {
   grid-column: 4;
   grid-row: 4 / 6;
 }

@@ -5,30 +5,55 @@
     <title>Calculator</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+    <script src="https://kit.fontawesome.com/c0dd6ac949.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">  <body>
     <div class="calculator_container">
-      <div class="number_display"></div>
+      <div class="number_display">
+        <div class="calc_history">13+1234+123-84123*1-13+1234+123-84123*1+14</div>
+        <div class="result">1231515123125124124</div>
+      </div>
       <div class="buttons_container">
-        <button class="btn_remove_all remove">&#x1F5D1</button>
-        <button class="btn_remove_last remove">C</button>
-        <button class="btn_power">^</button>
-        <button class="btn_divide">&#x00F7</button>
+        <button class="btn_remove_all remove">
+          <i class="far fa-trash-alt"></i>
+        </button>
+        <button class="btn_remove_last remove">
+          <i class="fas fa-backspace"></i>
+        </button>
+        <button class="btn_power operator">
+          <i class="fas fa-superscript"></i>
+        </button>
+        <button class="btn_divide operator">
+          <i class="fas fa-divide"></i>
+        </button>
         <button class="btn_7">7</button>
         <button class="btn_8">8</button>
         <button class="btn_9">9</button>
-        <button class="btn_multiply">X</button>
+        <button class="btn_multiply operator">
+          <i class="fas fa-times"></i>
+        </button>
         <button class="btn_4">4</button>
         <button class="btn_5">5</button>
         <button class="btn_6">6</button>
-        <button class="btn_minus">-</button>
+        <button class="btn_minus operator">
+          <i class="fas fa-minus"></i>
+        </button>
         <button class="btn_1">1</button>
         <button class="btn_2">2</button>
         <button class="btn_3">3</button>
-        <button class="btn_plus">+</button>
-        <button class="btn_0">0</button>
+        <button class="btn_equals operator">
+          <i class="fas fa-equals"></i>
+        </button>
         <button class="btn_dot">.</button>
-        <button class="btn_equals">=</button>
+        <button class="btn_0">0</button>
+        <button class="btn_plus">
+          <i class="fas fa-plus"></i>
+        </button>
       </div>
     </div>
     <footer>Created by Oskar Walichniewicz</footer>
