@@ -1,0 +1,50 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  border: blue solid;
+  margin: 0;
+  padding: 0;
+}
+
+.calculator_container {
+  width: 450px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: red solid;
+  margin-top: 100px;
+}
+
+.number_display {
+  width: 400px;
+  height: 100px;
+  background-color: grey;
+  margin: 25px;
+}
+
+.buttons_container {
+  width: 400px;
+  height: 425px;
+  margin: 25px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.btn_equals {
+  grid-column: 4;
+  grid-row: 4 / 6;
+}
+
+footer {
+  margin-bottom: 10px;
+}
