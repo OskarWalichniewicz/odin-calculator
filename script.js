@@ -189,8 +189,7 @@ dotButton.addEventListener('click', () => {
   display.textContent += '.';
 })
 
-/*
- ! FIX: When you press some number, divide by 0 
- ! and press smth else than equals, calcHistory will
- ! show only operator.
-*/
+window.addEventListener('keydown', (e) => {
+  const btn = document.querySelector(`button[data-key="${e.keyCode}"]`);
+  btn.click();
+});
