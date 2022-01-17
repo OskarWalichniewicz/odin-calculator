@@ -23,6 +23,10 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .calculator_container {
   width: 450px;
   height: 600px;

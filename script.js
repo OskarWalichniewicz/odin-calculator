@@ -18,7 +18,12 @@ function multiply (a, b) {
 
 function divide (a, b) {
   if(b == 0) {
-    return "ERROR";
+    alert('You can\'t divide by zero!');
+    display.textContent = '';
+    calcHistory.textContent = '';
+    firstNumber = 0;
+    secondNumber = 0;
+    return;
   }
   let result = Number(a) / Number(b);
   result = Math.round((result + Number.EPSILON) * 1000) / 1000;
@@ -76,59 +81,74 @@ operatorButtons.forEach((button) => {
   button.addEventListener('click', () => {
     switch(button.className.split(" ")[0]) {
       case "btn_power":
+        if(display.textContent === '') {
+          return;
+        }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
         }
         operator = '^';
         firstNumber = display.textContent;
         calcHistory.textContent = `${firstNumber} ${operator}`;
-        display.textContent = 0;
+        display.textContent = '';
         break;
       case "btn_divide":
+        if(display.textContent === '') {
+          return;
+        }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
         }
         operator = '/';
+        firstNumber = display.textContent;
         calcHistory.textContent = `${firstNumber} ${operator}`;
-        display.textContent = 0;
+        display.textContent = '';
         break;
       case "btn_multiply":
+        if(display.textContent === '') {
+          return;
+        }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
         }
         operator = '*';
         firstNumber = display.textContent;
         calcHistory.textContent = `${firstNumber} ${operator}`;
-        display.textContent = 0;
+        display.textContent = '';
         break;
       case "btn_minus":
+        if(display.textContent === '') {
+          return;
+        }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
         }
         operator = '-';
         firstNumber = display.textContent;
         calcHistory.textContent = `${firstNumber} ${operator}`;
-        display.textContent = 0;
+        display.textContent = '';
         break;
       case "btn_plus":
+        if(display.textContent === '') {
+          return;
+        }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
         }
         operator = '+';
         firstNumber = display.textContent;
         calcHistory.textContent = `${firstNumber} ${operator}`;
-        display.textContent = 0;
+        display.textContent = '';
         break;
       case "btn_equals":
+        if(display.textContent === '') {
+          return;
+        }
         secondNumber = display.textContent;
         display.textContent = operate(operator, firstNumber, secondNumber);
         operator = '=';
         firstNumber = display.textContent;
-        if (calcHistory.textContent !== '') {
-          calcHistory.textContent = display.textContent;
-        } else {
-          calcHistory.textContent += ` ${secondNumber}`;
-        }
+        calcHistory.textContent = '';
         break;
     }
   }); 
@@ -141,8 +161,8 @@ removeButtons.forEach((button) => {
       case "btn_remove_all":
         firstNumber = 0;
         lastNumber = 0;
-        calcHistory.textContent = "";
-        display.textContent = 0;
+        calcHistory.textContent = '';
+        display.textContent = '';
         break;
       case "btn_remove_last":
         // If display is 0, then remove_last does nothing
@@ -151,7 +171,7 @@ removeButtons.forEach((button) => {
         }
         // If display is 1 digit, but is not 0, then change it to 0
         if (display.textContent.length === 1) {
-          display.textContent = 0;
+          display.textContent = '';
           return;
         }
         // If it has more than 1 digit, then remove last number
@@ -160,3 +180,17 @@ removeButtons.forEach((button) => {
     }
   });
 });
+
+const dotButton = document.querySelector('.btn_dot');
+dotButton.addEventListener('click', () => {
+  if(display.textContent.includes('.')) {
+    return;
+  }
+  display.textContent += '.';
+})
+
+/*
+ ! FIX: When you press some number, divide by 0 
+ ! and press smth else than equals, calcHistory will
+ ! show only operator.
+*/
