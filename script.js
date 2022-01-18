@@ -23,6 +23,7 @@ function divide (a, b) {
     calcHistory.textContent = '';
     firstNumber = 0;
     secondNumber = 0;
+    fromAlert = true;
     return;
   }
   let result = Number(a) / Number(b);
@@ -54,6 +55,8 @@ function operate (operator, a, b) {
       return 0;
   }
 }
+
+let fromAlert = false;
 
 const calcHistory = document.querySelector('.calc_history');
 
@@ -89,6 +92,10 @@ operatorButtons.forEach((button) => {
         }
         operator = '^';
         firstNumber = display.textContent;
+        if(fromAlert === true) {
+          fromAlert = false;
+          return;
+        }
         calcHistory.textContent = `${firstNumber} ${operator}`;
         display.textContent = '';
         break;
@@ -101,6 +108,10 @@ operatorButtons.forEach((button) => {
         }
         operator = '/';
         firstNumber = display.textContent;
+        if(fromAlert === true) {
+          fromAlert = false;
+          return;
+        }
         calcHistory.textContent = `${firstNumber} ${operator}`;
         display.textContent = '';
         break;
@@ -113,6 +124,10 @@ operatorButtons.forEach((button) => {
         }
         operator = '*';
         firstNumber = display.textContent;
+        if(fromAlert === true) {
+          fromAlert = false;
+          return;
+        }
         calcHistory.textContent = `${firstNumber} ${operator}`;
         display.textContent = '';
         break;
@@ -125,6 +140,10 @@ operatorButtons.forEach((button) => {
         }
         operator = '-';
         firstNumber = display.textContent;
+        if(fromAlert === true) {
+          fromAlert = false;
+          return;
+        }
         calcHistory.textContent = `${firstNumber} ${operator}`;
         display.textContent = '';
         break;
@@ -137,6 +156,10 @@ operatorButtons.forEach((button) => {
         }
         operator = '+';
         firstNumber = display.textContent;
+        if(fromAlert === true) {
+          fromAlert = false;
+          return;
+        }
         calcHistory.textContent = `${firstNumber} ${operator}`;
         display.textContent = '';
         break;
