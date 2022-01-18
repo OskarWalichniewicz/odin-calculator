@@ -154,8 +154,8 @@ operatorButtons.forEach((button) => {
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
         }
-        operator = '+';
         firstNumber = display.textContent;
+        operator = '+';
         if(fromAlert === true) {
           fromAlert = false;
           return;
@@ -171,6 +171,10 @@ operatorButtons.forEach((button) => {
         display.textContent = operate(operator, firstNumber, secondNumber);
         operator = '=';
         firstNumber = display.textContent;
+        if(fromAlert === true) {
+          fromAlert = false;
+          return;
+        }
         calcHistory.textContent = '';
         break;
     }
