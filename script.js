@@ -64,8 +64,8 @@ const display = document.querySelector('.result');
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    // Display can contain max 19 chars.
-    if(display.textContent.length >= 19) {
+    // Display can contain max 18 chars.
+    if(display.textContent.length >= 18) {
       return 0;
     }
       if(display.textContent === '0') {
@@ -89,6 +89,11 @@ operatorButtons.forEach((button) => {
         }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
+          if(display.textContent.length > 18) {
+            display.style.fontSize = "32px";
+          } else {
+            display.style.fontSize = "35px";
+          }
         }
         operator = '^';
         firstNumber = display.textContent;
@@ -105,6 +110,11 @@ operatorButtons.forEach((button) => {
         }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
+          if(display.textContent.length > 18) {
+            display.style.fontSize = "32px";
+          } else {
+            display.style.fontSize = "35px";
+          }
         }
         operator = '/';
         firstNumber = display.textContent;
@@ -121,6 +131,11 @@ operatorButtons.forEach((button) => {
         }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
+          if(display.textContent.length > 18) {
+            display.style.fontSize = "32px";
+          } else {
+            display.style.fontSize = "35px";
+          }
         }
         operator = '*';
         firstNumber = display.textContent;
@@ -137,6 +152,11 @@ operatorButtons.forEach((button) => {
         }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
+          if(display.textContent.length > 18) {
+            display.style.fontSize = "32px";
+          } else {
+            display.style.fontSize = "35px";
+          }
         }
         operator = '-';
         firstNumber = display.textContent;
@@ -153,6 +173,11 @@ operatorButtons.forEach((button) => {
         }
         if(firstNumber !== 0) {
           display.textContent = operate(operator, firstNumber, display.textContent);
+          if(display.textContent.length > 18) {
+            display.style.fontSize = "32px";
+          } else {
+            display.style.fontSize = "35px";
+          }
         }
         firstNumber = display.textContent;
         operator = '+';
@@ -169,6 +194,11 @@ operatorButtons.forEach((button) => {
         }
         secondNumber = display.textContent;
         display.textContent = operate(operator, firstNumber, secondNumber);
+        if(display.textContent.length > 18) {
+          display.style.fontSize = "32px";
+        } else {
+          display.style.fontSize = "35px";
+        }
         operator = '=';
         firstNumber = display.textContent;
         if(fromAlert === true) {
@@ -220,3 +250,10 @@ window.addEventListener('keydown', (e) => {
   const btn = document.querySelector(`button[data-key="${e.keyCode}"]`);
   btn.click();
 });
+
+display.addEventListener('change', () => {
+  if(display.textContent.length > 18) {
+    console.log('here');
+    display.style.fontSize = "15px";
+  }
+})
